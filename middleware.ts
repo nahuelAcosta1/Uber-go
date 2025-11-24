@@ -1,12 +1,12 @@
-// middleware.ts
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
 export default clerkMiddleware();
 
 export const config = {
   matcher: [
-    "/((?!.+\\.[\\w]+$|_next).*)",
-    "/",
-    "/(api|trpc)(.*)",
+    /*
+     * Evitar proteger las rutas de autenticación
+     */
+    "/((?!_next|static|.*\\..*|sign-in|sign-up).*)",
   ],
 };
